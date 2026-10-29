@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Python tutorials, AI concepts, machine learning and coding tips at Code Classroom AI.">
+  <title>AI & Coding Posts | Code Classroom AI</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1120;
+      color: #ffffff;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #111a2e;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      color: #60a5fa;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px;
+      background: linear-gradient(135deg, #111a2e, #172554);
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #cbd5e1;
+      margin: 0 auto 22px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 11px 20px;
+      border-radius: 8px;
+      margin: 5px 5px 5px 0;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 6%;
+    }
+
+    .section-title {
+      font-size: 29px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-title span {
+      color: #60a5fa;
+    }
+
+    .intro {
+      color: #cbd5e1;
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 30px;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      background: #111a2e;
+      color: #ffffff;
+      border: 1px solid #334155;
+      border-radius: 20px;
+      padding: 9px 16px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit, minmax(250px, 1fr)
+      );
+      gap: 22px;
+    }
+
+    .post-card {
+      background: #111a2e;
+      border: 1px solid #263650;
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .post-card:hover {
+      transform: translateY(-4px);
+      border-color: #60a5fa;
+    }
+
+    .post-card[hidden] {
+      display: none;
+    }
+
+    .post-icon {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      color: #93c5fd;
+      background: #172554;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .post-card h3 {
+      color: #60a5fa;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .post-card p {
+      color: #cbd5e1;
+      margin-bottom: 15px;
+    }
+
+    .post-card .button {
+      margin-top: auto;
+    }
+
+    .read-more {
+      color: #93c5fd;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font: inherit;
+      text-align: left;
+      margin: 0 0 15px;
+      text-decoration: underline;
+    }
+
+    .post-body {
+      width: 100%;
+      border-top: 1px solid #334155;
+      padding-top: 15px;
+      margin: 0 0 18px;
+    }
+
+    .post-body[hidden] {
+      display: none;
+    }
+
+    .post-body h4 {
+      color: #93c5fd;
+      margin: 12px 0 6px;
+    }
+
+    .post-body pre {
+      background: #070b14;
+      color: #bfdbfe;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-size: 13px;
+      margin: 10px 0;
+    }
+
+    .post-body ul {
+      padding-left: 20px;
+      color: #cbd5e1;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 45px;
+      padding: 30px 20px;
+      background: #111a2e;
+      border: 1px solid #263650;
+      border-radius: 14px;
+    }
+
+    .cta h2 {
+      color: #60a5fa;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: #cbd5e1;
+      margin-bottom: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      background: #070b14;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 50px 18px;
+      }
+
+      main {
+        padding: 35px 5%;
+      }
+
+      .section-title {
+        font-size: 25px;
+      }
+
+      .posts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Code Classroom AI</div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="python-lessons.html">Python Lessons</a>
+      <a href="#posts">AI & Coding Posts</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Explore <span>AI & Coding</span></h1>
+    <p>
+      Learn new programming concepts, understand artificial
+      intelligence and explore practical Python examples.
+      Your next coding idea starts here!
+    </p>
+
+    <a href="python-lessons.html" class="button">
+      Learn Python
+    </a>
+
+    <a href="#posts" class="button">
+      Explore Posts
+    </a>
+  </section>
+
+  <main id="posts">
+    <h2 class="section-title">Our <span>Learning Posts</span></h2>
+
+    <p class="intro">
+      Choose a topic and explore beginner-friendly explanations,
+      examples and coding concepts.
+    </p>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">
+        All Posts
+      </button>
+
+      <button class="filter-btn" data-filter="python">
+        Python
+      </button>
+
+      <button class="filter-btn" data-filter="ai">
+        Artificial Intelligence
+      </button>
+
+      <button class="filter-btn" data-filter="ml">
+        Machine Learning
+      </button>
+
+      <button class="filter-btn" data-filter="tips">
+        Coding Tips
+      </button>
+    </div>
+
+    <div class="posts-grid">
+
+      <!-- POST 1 -->
+      <article class="post-card" data-category="python">
+        <div class="post-icon">🐍</div>
+        <span class="tag">PYTHON BASICS</span>
+        <h3>What Is Python?</h3>
+        <p>
+          Discover Python, a beginner-friendly programming
+          language used in automation, web development and AI.
+        </p>
+
+        <button class="read-more" aria-expanded="false">
+          Read Explanation ↓
+        </button>
+
+        <div class="post-body" hidden>
+          <h4>What is Python?</h4>
+          <p>
+            Python is a programming language known for its
+            readable syntax. Developers use it to build
+            applications, analyse data and create AI systems.
+          </p>
+
+          <h4>Example</h4>
+          <pre>print("Hello, World!")</pre>
+
+          <h4>Output</h4>
+          <pre>Hello, World!</pre>
+
+          <h4>Remember</h4>
+          <p>
+            The print() function displays information
+            on the screen.
+          </p>
+        </div>
+      </article>
+
+      <!-- POST 2 -->
+      <article class="post-card" data-category="python">
+        <div class="post-icon">📦</div>
+        <span class="tag">PYTHON BASICS</span>
+        <h3>Understanding Variables</h3>
+        <p>
+          Learn how variables store information that
+          your Python program can use.
+        </p>
+
+        <button class="read-more" aria-expanded="false">
+          Read Explanation ↓
+        </button>
+
+        <div class="post-body" hidden>
+          <h4>What is a variable?</h4>
+          <p>
+            A variable is a name that refers to a value.
+            You can use it to store text, numbers and other data.
+          </p>
+
+          <h4>Example</h4>
+          <pre>name = "Python"
+age = 30
+
+print(name)
+print(age)</pre>
+
+          <h4>Output</h4>
+          <pre>Python
+30</pre>
+
+          <h4>Remember</h4>
+          <p>
+            Use meaningful variable names such as name,
+            age or total_price.
+          </p>
+        </div>
+      </article>
+
+      <!-- POST 3 -->
+      <article class="post-card" data-category="ai">
+        <div class="post-icon">🤖</div>
+        <span class="tag">ARTIFICIAL INTELLIGENCE</span>
+        <h3>What Is Artificial Intelligence?</h3>
+        <p>
+          Understand how AI systems perform tasks such as
+          recognising patterns and generating text.
+        </p>
+
+        <button class="read-more" aria-expanded="false">
+          Read Explanation ↓
+        </button>
+
+        <div class="post-body" hidden>
+          <h4>What is AI?</h4>
+          <p>
+            Artificial Intelligence is a field of computing
+            focused on building systems that perform tasks
+            commonly associated with human intelligence.
+          </p>
+
+          <h4>Everyday examples</h4>
+          <ul>
+            <li>Voice assistants</li>
+            <li>Recommendation systems</li>
+            <li>Image recognition</li>
+            <li>AI writing assistants</li>
+          </ul>
+
+          <h4>Remember</h4>
+          <p>
+            AI is a broad field. Different AI systems use
+            different techniques and have different abilities.
+          </p>
+        </div>
+      </article>
+
+      <!-- POST 4 -->
+      <article class="post-card" data-category="ml">
+        <div class="post-icon">🧠</div>
+        <span class="tag">MACHINE LEARNING</span>
+        <h3>What Is Machine Learning?</h3>
+        <p>
+          Learn how computers use data to find patterns
+          and make predictions.
+        </p>
+
+        <button class="read-more" aria-expanded="false">
+          Read Explanation ↓
+        </button>
+
+        <div class="post-body" hidden>
+          <h4>How does it work?</h4>
+          <p>
+            Machine learning is a branch of AI in which
+            algorithms learn patterns from data. A trained
+            model can use those patterns to make predictions.
+          </p>
+
+          <h4>Example</h4>
+          <p>
+            A model trained on labelled email examples may
+            learn to classify new emails as spam or not spam.
+          </p>
+
+          <h4>Basic workflow</h4>
+          <ul>
+            <li>Collect useful data.</li>
+            <li>Prepare the data.</li>
+            <li>Train a model.</li>
+            <li>Evaluate its performance.</li>
+            <li>Use it to make predictions.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- POST 5 -->
+      <article class="post-card" data-category="tips">
+        <div class="post-icon">💡</div>
+        <span class="tag">CODING TIPS</span>
+        <h3>How to Learn Coding Effectively</h3>
+        <p>
+          Build a consistent coding habit through small
+          exercises and practical projects.
+        </p>
+
+        <button class="read-more" aria-expanded="false">
+          Read Explanation ↓
+        </button>
+
+        <div class="post-body" hidden>
+          <h4>Try this approach</h4>
+          <ul>
+            <li>Learn one concept at a time.</li>
+            <li>Type and run the example yourself.</li>
+            <li>Change the code and observe the result.</li>
+            <li>Practise with small challenges.</li>
+            <li>Build projects as your skills grow.</li>
+          </ul>
+
+          <h4>Example challenge</h4>
+          <p>
+            Write a Python program that adds two numbers
+            and prints the result.
+          </p>
+
+          <pre>first = 10
+second = 20
+
+print(first + second)</pre>
+
+          <h4>Output</h4>
+          <pre>30</pre>
+        </div>
+      </article>
+
+      <!-- POST 6 -->
+      <article class="post-card" data-category="ai">
+        <div class="post-icon">✨</div>
+        <span class="tag">AI PROJECT IDEAS</span>
+        <h3>Build Your First AI Project</h3>
+        <p>
+          Explore beginner-friendly project ideas and
+          discover how programming can solve useful problems.
+        </p>
+
+        <button class="read-more" aria-expanded="false">
+          Read Explanation ↓
+        </button>
+
+        <div class="post-body" hidden>
+          <h4>Project ideas</h4>
+          <ul>
+            <li>Question-answering assistant</li>
+            <li>Document summariser</li>
+            <li>Simple recommendation system</li>
+            <li>Text sentiment classifier</li>
+          </ul>
+
+          <h4>Getting started</h4>
+          <p>
+            Choose one problem, identify the required inputs
+            and outputs, build a small prototype and test it
+            with example data.
+          </p>
+
+          <h4>Tip</h4>
+          <p>
+            Start with a simple working version before
+            adding more advanced features.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <section class="cta">
+      <h2>Keep Learning. Keep Building.</h2>
+      <p>
+        Continue your journey with our step-by-step
+        Python lessons.
+      </p>
+      <a href="python-lessons.html" class="button">
+        Explore Python Lessons
+      </a>
+      <a href="index.html" class="button">
+        Back to Home
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      &copy; 2026 Code Classroom AI.
+      Learn, Build and Innovate.
+    </p>
+  </footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const postCards = document.querySelectorAll(".post-card");
+    const readMoreButtons = document.querySelectorAll(".read-more");
+
+    filterButtons.forEach(function(button) {
+      button.addEventListener("click", function() {
+        const selectedCategory = button.dataset.filter;
+
+        filterButtons.forEach(function(item) {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        postCards.forEach(function(card) {
+          const category = card.dataset.category;
+          card.hidden =
+            selectedCategory !== "all" &&
+            selectedCategory !== category;
+        });
+      });
+    });
+
+    readMoreButtons.forEach(function(button) {
+      button.addEventListener("click", function() {
+        const postBody = button.nextElementSibling;
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+        postBody.hidden = isExpanded;
+        button.setAttribute("aria-expanded", String(!isExpanded));
+
+        button.textContent = isExpanded
+          ? "Read Explanation ↓"
+          : "Show Less ↑";
+      });
+    });
+  </script>
+
+</body>
+</html>
