@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Code Classroom AI offers Python lessons, AI concepts, coding tips and practical projects for learners.">
   <title>Code Classroom AI | Learn Python & AI</title>
 
   <style>
@@ -11,6 +12,11 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
     }
 
     body {
@@ -36,10 +42,15 @@
       font-weight: bold;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
     nav a {
       color: #ffffff;
       text-decoration: none;
-      margin-left: 18px;
       font-size: 14px;
     }
 
@@ -58,7 +69,9 @@
       margin-bottom: 15px;
     }
 
-    .hero h1 span {
+    .hero h1 span,
+    .section-title span,
+    .founder-info h2 span {
       color: #60a5fa;
     }
 
@@ -75,7 +88,8 @@
       padding: 12px 22px;
       border-radius: 8px;
       text-decoration: none;
-      margin: 5px;
+      margin: 5px 5px 5px 0;
+      transition: background 0.2s ease;
     }
 
     .button:hover {
@@ -92,8 +106,11 @@
       margin-bottom: 30px;
     }
 
-    .section-title span {
-      color: #60a5fa;
+    .section-description {
+      color: #cbd5e1;
+      text-align: center;
+      max-width: 650px;
+      margin: -15px auto 30px;
     }
 
     .cards {
@@ -109,6 +126,15 @@
       border: 1px solid #263650;
       padding: 25px;
       border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #60a5fa;
     }
 
     .card h3 {
@@ -118,6 +144,25 @@
 
     .card p {
       color: #cbd5e1;
+      margin-bottom: 12px;
+    }
+
+    .card .button {
+      margin-top: auto;
+    }
+
+    .content-tag {
+      display: inline-block;
+      color: #93c5fd;
+      background: #172554;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    #latest-content {
+      background: #0d1628;
     }
 
     .founder {
@@ -129,24 +174,16 @@
       flex-wrap: wrap;
     }
 
-    
-.founder img {
-  width: 340px;
-  height: 490px;
-  
-  object-fit: cover;
-
-  object-position: center;
-  border-radius: 18px;
-  border: 3px solid #60a5fa;
-  background: #263650;
-}
-
-  
-  
-      
-      
-    
+    .founder img {
+      width: 340px;
+      height: 490px;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 18px;
+      border: 3px solid #60a5fa;
+      background: #263650;
+    }
 
     .founder-info {
       max-width: 500px;
@@ -178,13 +215,17 @@
         justify-content: center;
       }
 
-      nav {
+      .logo {
         text-align: center;
       }
 
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
       nav a {
-        display: inline-block;
-        margin: 5px 8px;
+        font-size: 13px;
       }
 
       .hero {
@@ -195,8 +236,26 @@
         padding: 45px 6%;
       }
 
+      .section-title {
+        font-size: 27px;
+      }
+
       .founder {
         text-align: center;
+      }
+
+      .founder img {
+        width: 100%;
+        max-width: 340px;
+        height: 450px;
+      }
+
+      .founder-info .button {
+        margin-top: 15px;
+      }
+
+      .card {
+        padding: 22px;
       }
     }
   </style>
@@ -210,12 +269,15 @@
     <nav>
       <a href="#home">Home</a>
       <a href="#lessons">Lessons</a>
+      <a href="#latest-content">Latest Content</a>
       <a href="#projects">Projects</a>
       <a href="#founder">Founder</a>
     </nav>
   </header>
 
   <main>
+
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
       <h1>Learn Python. <span>Build AI.</span></h1>
 
@@ -229,23 +291,27 @@
       <a href="#projects" class="button">Explore Projects</a>
     </section>
 
+    <!-- LEARNING SECTION -->
     <section id="lessons">
       <h2 class="section-title">Learn <span>With Us</span></h2>
 
-      <div class="cards">
-        
-<div class="card">
-  <h3>🐍 Python Lessons</h3>
-  <p>
-    Learn Python basics, variables, loops,
-    functions and more.
-  </p>
-  <a href="python-lessons.html" class="button">
-    Start Learning
-  </a>
-</div>
+      <p class="section-description">
+        Build your coding knowledge through lessons,
+        AI concepts and practical programming exercises.
+      </p>
 
-          
+      <div class="cards">
+
+        <div class="card">
+          <h3>🐍 Python Lessons</h3>
+          <p>
+            Learn Python basics, variables, loops,
+            functions and more with step-by-step lessons.
+          </p>
+          <a href="python-lessons.html" class="button">
+            Start Learning
+          </a>
+        </div>
 
         <div class="card">
           <h3>🤖 Artificial Intelligence</h3>
@@ -253,42 +319,142 @@
             Explore AI concepts, machine learning
             and intelligent applications.
           </p>
+          <a href="#latest-content" class="button">
+            Explore AI Content
+          </a>
         </div>
 
         <div class="card">
           <h3>💻 Coding Practice</h3>
           <p>
             Improve your coding skills through
-            practical examples and exercises.
+            practical examples and programming ideas.
           </p>
+          <a href="python-lessons.html" class="button">
+            Practise Python
+          </a>
         </div>
+
       </div>
     </section>
 
+    <!-- LATEST CONTENT SECTION -->
+    <section id="latest-content">
+      <h2 class="section-title">Latest <span>Content</span></h2>
+
+      <p class="section-description">
+        Learn something new through Python lessons,
+        AI explanations, coding tips and project updates.
+      </p>
+
+      <div class="cards">
+
+        <div class="card content-card">
+          <span class="content-tag">PYTHON</span>
+          <h3>🐍 Daily Python Lessons</h3>
+          <p>
+            Follow beginner-friendly lessons covering
+            Python concepts, code examples and outputs.
+          </p>
+          <a href="python-lessons.html" class="button">
+            View Lessons
+          </a>
+        </div>
+
+        <div class="card content-card">
+          <span class="content-tag">AI & CODING</span>
+          <h3>🤖 AI Tips & Coding Knowledge</h3>
+          <p>
+            Explore artificial intelligence concepts,
+            programming tips and educational explanations.
+          </p>
+          <a href="#lessons" class="button">
+            Explore Topics
+          </a>
+        </div>
+
+        <div class="card content-card">
+          <span class="content-tag">REAL PROJECTS</span>
+          <h3>💻 Practical AI Projects</h3>
+          <p>
+            Discover project ideas and learn how Python
+            and AI can solve real-world problems.
+          </p>
+          <a href="#projects" class="button">
+            View Projects
+          </a>
+        </div>
+
+        <div class="card content-card">
+          <span class="content-tag">VIDEO LESSONS</span>
+          <h3>🎬 Reels & Learning Updates</h3>
+          <p>
+            Explore our educational topics and follow
+            new learning content from Code Classroom AI.
+          </p>
+          <a href="#founder" class="button">
+            About Our Classroom
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
     <section id="projects">
       <h2 class="section-title">Our <span>Projects</span></h2>
 
+      <p class="section-description">
+        Explore practical coding ideas and AI applications.
+        Project links and detailed explanations can be added here.
+      </p>
+
       <div class="cards">
+
         <div class="card">
-          <h3>AI Applications</h3>
+          <h3>🚀 AI Applications</h3>
           <p>
-            Discover AI-powered applications
-            and learn how they work.
+            Discover AI-powered applications and understand
+            how intelligent tools can be developed.
           </p>
+          <a href="#latest-content" class="button">
+            Explore AI
+          </a>
         </div>
 
         <div class="card">
-          <h3>Python Projects</h3>
+          <h3>🐍 Python Projects</h3>
           <p>
-            Build useful projects while
-            practising real-world coding.
+            Build useful projects while practising
+            real-world Python programming.
           </p>
+          <a href="python-lessons.html" class="button">
+            Learn Python
+          </a>
         </div>
+
+        <div class="card">
+          <h3>🧠 Machine Learning</h3>
+          <p>
+            Discover how machine learning models
+            learn from data and make predictions.
+          </p>
+          <a href="#latest-content" class="button">
+            Learn the Basics
+          </a>
+        </div>
+
       </div>
     </section>
 
+    <!-- FOUNDER SECTION -->
     <section class="founder" id="founder">
-      <img src="founder.jpg" alt="Code Classroom AI Founder">
+
+      <img
+        src="founder.jpg"
+        alt="Santosh Yadav, founder of Code Classroom AI"
+        loading="lazy"
+      >
 
       <div class="founder-info">
         <h2>Meet the <span>Founder</span></h2>
@@ -297,13 +463,17 @@
         <p>
           Welcome to Code Classroom AI!
           This platform shares Python lessons,
-          coding knowledge and AI project ideas
+          coding knowledge, AI concepts and project ideas
           to help learners grow their technical skills.
         </p>
 
-        <a href="#lessons" class="button">Start Learning</a>
+        <a href="#lessons" class="button">
+          Start Learning
+        </a>
       </div>
+
     </section>
+
   </main>
 
   <footer>
@@ -315,3 +485,4 @@
 
 </body>
 </html>
+
